@@ -108,8 +108,6 @@ function attach_photo() {
 }
 
 const saveDataMaster = (type) => {
-    alert(type)
-    return;
     $(`#form-${type}`).submit(function(e) {
         $(`#save-data-${type}`).attr('disabled', 'true')
         e.preventDefault();
