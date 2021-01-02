@@ -26,8 +26,8 @@
                         </div>
                         <div class="col-md-2 mb-3">
                             <label for="">Category Type</label>
-                            <select class="form-control" name="id_category" required id="id_category"
-                                onchange="get_sub_cat('subcategory')">
+                            <select class="form-control" name="id_category" required id="category"
+                                onchange="get_sub_cat()">
                                 <option value="">Select Category</option>                               
                             </select>
                             <div class="invalid-feedback">
@@ -37,8 +37,8 @@
 
                         <div class="col-md-3 mb-3">
                             <label for="">Sub Category Type</label>
-                            <select class="form-control" name="id_subcategory" required id="id_subcategory">
-                                <option value="">Select Sub Category</option>
+                            <select class="form-control" name="id_subcategory" required id="subcategory">
+                                <option value="">Pilih Category First</option>
                             </select>
                             <div class="invalid-feedback">
                                 Please Input Sub Category
@@ -56,19 +56,20 @@
                                 Please Input Product Price
                             </div>
                         </div>
-                        <div class="col-md-2 mb-3">
+                        <div class="col-md-1 mb-3">
                             <label for="">Quanitity</label>
-                            <input type="text" class="form-control" id="product_quantity" name="product_quantity"
-                                placeholder="Product Quantity" value="" required>
+                            <input type="text" class="form-control" id="product_stock" name="product_stock"
+                                placeholder="Stock" value="" required>
 
                             <div class="invalid-feedback">
-                                Please Input Product Quantity
+                                Input Quantity
                             </div>
                         </div>
-                        <div class="col-md-2 mb-3">
+                        <div class="col-md-3 mb-3">
                             <label for="">Recomended</label>
                             <select class="form-control" name="product_recomended" required id="product_recomended">
-                                <option value="">Choose Selection</option>
+                                <option value="0">NOT RECOMENDED</option>
+                                <option value="1">RECOMENDED</option>
                             </select>
                             <div class="invalid-feedback">
                                 Please Input Reomended Type
@@ -120,14 +121,14 @@
                     <div class="form-row">
                         <div class="col-md-5 mb-3">
                             <label for="">Description</label>
-                            <textarea style="height:335px" type="text" class="form-control" id="description"
-                                name="description" value="" id
+                            <textarea style="height:335px" type="text" class="form-control" id="product_description"
+                                name="product_description" value="" id
                                 placeholder="Description Category"></textarea>
                         </div>
                         <div class="col-md-5 mb-3">
                             <label for="">Image</label>
                             <div class="input-group mb-3">
-                            <input onChange="get_image()" type="file" name="image" class="form-control"  >
+                            <input type="file" name="product_image" class="form-control"  >
                             </div>
                                 <div>
                                     <img src="" alt="">

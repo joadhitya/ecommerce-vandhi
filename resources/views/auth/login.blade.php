@@ -48,10 +48,9 @@
                     </div>
                     <div class="login-form-body">
                         <div class="form-gp">
-                            <label for="username">Username</label>
+                            <label for="email">Email</label>
                             <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email"
                                 value="" required autocomplete="email">
-
                             @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -60,12 +59,10 @@
                             <i class="ti-email"></i>
                             <div class="text-danger"></div>
                         </div>
-
                         <div class="form-gp">
                             <label for="password">Password</label>
                             <input id="password" type="password" class="@error('password') is-invalid @enderror"
                                 name="password" required autocomplete="current-password">
-
                             @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

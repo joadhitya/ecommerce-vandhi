@@ -30,6 +30,13 @@
 @push('page-scripts')
 
 <script src="{{asset('script/master-data/index.js')}}"></script>
+<script src="{{asset('script/master-data/product.js')}}"></script>
+
+<script>
+    $(document).ready(function () {
+        getCategory()
+    });
+</script>
 
 {{-- <script>
     const fetchData = (type, id) => {

@@ -91,4 +91,11 @@ class SubcategoryController extends Controller
        );
         echo json_encode($response);
     }
+    
+    public function getDataSubCategoryByCategory($id){
+        $subcategory = DB::table('subcategories')
+        ->where('id_category', $id)
+        ->get();        
+        echo json_encode($subcategory);
+    }
 }

@@ -99,4 +99,9 @@ class CategoryController extends Controller
        );
         echo json_encode($response);
     }
+
+    function getDataCategory(){        
+        $categories = Category::get();
+        echo json_encode($categories);
+    }
 }

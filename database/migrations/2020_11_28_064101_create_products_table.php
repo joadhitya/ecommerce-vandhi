@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('product_code');
             $table->string('product_name');
             $table->integer('product_price');
-            $table->integer('product_quantity');
+            $table->integer('product_stock');
             $table->integer('product_recomended');
             $table->string('product_description')->nullable();
             $table->string('product_slug')->nullable();
