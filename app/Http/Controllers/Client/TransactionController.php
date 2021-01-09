@@ -85,9 +85,7 @@ class TransactionController extends Controller
         $fm_y = date_create(date('Y-m-d'));
         $year = date_format($fm_y,"Y");  
         $month = date_format($fm_y,"m");  
-
         $transaction_code = $t_rand.$num.$year.$month;
-
         foreach($_SESSION['cart'] as $key=>$val) {
             $products = DB::select('SELECT p.*, c.category_name, sc.subcategory_name
                 FROM products p 
@@ -102,7 +100,6 @@ class TransactionController extends Controller
                     $cart_total = $cart_total+($price*$qty);
                 }
         }
-
         $address = $_POST['address'];
         $province = $_POST['province'];
         $city = $_POST['city'];
@@ -115,14 +112,8 @@ class TransactionController extends Controller
         if($type_payment=='cod'){
             $payment_status='success';
         }
-        $order_status='1';
-    
-        $txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 20);
-
-        // IMAGE UPLOAD TRANSFER
-        // $image=rand(11111,99999).'_'.$_FILES['transfer_photo']['name'];
-        
-
+        $order_status='1';    
+        $txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 20);        
         if($request->file('transfer_photo') != ''){
             $image = $data['transfer_photo'] = $request->file('transfer_photo')->store(
                     'assets/transfer_photo', 'public'
@@ -130,9 +121,6 @@ class TransactionController extends Controller
         }else{
             $image = 'assets/transfer_photo/not_transfer.png';
         }
-        
-
-
         // QUERY INSERT ORDERS
         $id_transaction = DB::table('orders')->insertGetId([
             'transaction_code' => $transaction_code, 

@@ -23,7 +23,7 @@
 ?>
 
 <section class="section-features text-xs-center" style="padding-top:100px">
-    <h2 style="font-weight:bold;text-transform:uppercase">I GOT SUPPLIES</h2>
+    <h2 style="font-weight:bold;text-transform:uppercase">Vandhi E-Commerce</h2>
     <hr>
     <div style="display:flex;justify-content:center">
         <b>Sort By :</b>&nbsp;&nbsp;

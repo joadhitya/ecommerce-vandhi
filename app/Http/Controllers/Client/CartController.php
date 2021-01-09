@@ -52,9 +52,7 @@ class CartController extends Controller
     public function checkout()
     {   
         session_start();
-
         $cart_total = 0;
-
         foreach($_SESSION['cart'] as $key=>$val) {
             $products = DB::select('SELECT p.*, c.category_name, sc.subcategory_name
                 FROM products p 

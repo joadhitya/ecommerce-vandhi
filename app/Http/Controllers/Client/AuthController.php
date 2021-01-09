@@ -46,7 +46,10 @@ class AuthController extends Controller
             }else{
                 echo 'wrong';
             }
-        }        
+        }else{
+            
+            echo 'wrong';
+        }       
     }
 
     public function logoutClient(){

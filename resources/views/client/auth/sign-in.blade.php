@@ -202,7 +202,6 @@ session_start();
                 type: 'post',
                 data: {username , password},
                 success: function (result) {
-                    console.log(result)
                     if (result == 'wrong') {
                         $("#login_section").LoadingOverlay("hide", true);
                         Swal.fire({
@@ -214,7 +213,6 @@ session_start();
                         })
                     }
                     if (result == 'valid') {
-
                         window.location.href = 'vandhi';
                     }
                 }

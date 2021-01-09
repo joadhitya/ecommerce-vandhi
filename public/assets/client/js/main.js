@@ -68,7 +68,7 @@ $(document).ready(function () {
 
     function cek_uri() {
         path = window.location.pathname
-        if (path != '/vandhi' && path != '/igotsupplies/') {
+        if (path != '/vandhi' && path != '/') {
             $('.nav-link').css('color', '#9090ff')
             $('.icon-logo').css('color', '#9090ff')
             $('.navbar-search-input').css('color', '#9090ff')
