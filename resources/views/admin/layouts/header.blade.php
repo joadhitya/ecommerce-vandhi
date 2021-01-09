@@ -9,7 +9,7 @@
         </div>
         <div class="col-md-6 col-sm-4 clearfix">
             <ul class="notification-area pull-right">
-                <li class="dropdown">
+                {{-- <li class="dropdown">
                     <i class="ti-bell dropdown-toggle" data-toggle="dropdown">
                         <span>2</span>
                     </i>
@@ -45,7 +45,7 @@
                             </a>
                         </div>
                     </div>
-                </li>
+                </li> --}}
                 <li>
                     <div class="user-profile" style="padding:5px 25px;background:transparent">
                         <img class="avatar user-thumb" src="{{asset('assets/admin/images/icon/boy.png')}}" alt="avatar">

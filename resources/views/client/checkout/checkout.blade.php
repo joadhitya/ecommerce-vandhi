@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-7">
                 <div id="process_transaction">
-                    <div class="card">
+                    <div class="card" style="background: transparent">
                         <h3 class="display-3 text-uppercase" style="font-weight:bold;text-align:left;font-size:2em">
                             Process
                             Transaction
@@ -28,7 +28,7 @@
                                         <select type="text" class="form-control form-control-lg" id="province"
                                             name="province" placeholder="Province">
                                             <option value="">Select Province</option>
-                                            <option value="1">Jawa Tengah</option>
+                                            <option value="1">Yogyakarta</option>
                                         </select>
                                         <span class="field_error" id="province_error"></span>
                                     </div>
@@ -38,7 +38,9 @@
                                         <select type="text" class="form-control form-control-lg" id="city" name="city"
                                             placeholder="City">
                                             <option value="">Select City</option>
-                                            <option value="2">Semarang</option>
+                                            <option value="2">Sleman</option>
+                                            <option value="2">Depok</option>
+                                            <option value="2">Kota Yogyakarta</option>
                                         </select>
                                         <span class="field_error" id="city_error"></span>
                                     </div>
@@ -79,8 +81,7 @@
                                             <div class="custom-control custom-radio custom-control-inline mx-2">
                                                 <input type="radio" id="credit_card" name="type_payment"
                                                     class="custom-control-input" value="credit_card">
-                                                <label class="custom-control-label" for="credit_card">Credit
-                                                    Card</label>
+                                                <label class="custom-control-label" for="credit_card">Midtrans</label>
                                             </div>
 
                                         </div>
@@ -132,7 +133,7 @@
                 </div>
             </div>
             <div class="col-md-5" style="padding-left:1.2rem">
-                <div class="card">
+                <div class="card" style="background: transparent">
                     <h3 class="display-3 text-uppercase" style="font-weight:bold;text-align:left;font-size:2em">Checkout
                     </h3>
                     <div class="card-body">
@@ -192,6 +193,12 @@
 
 @push('page-scripts')
 <script>
+    $.ajaxSetup({
+    headers: {
+        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+    }
+});
+
     $(document).on('submit', '#payment-form', function (e) {
         e.preventDefault()
         data = new FormData(this);
@@ -262,6 +269,8 @@
                 total_price = $("#total_transaction_input").val()
             }
 
+            var total_pembayaran = $("#total_transaction").text();
+
             total_payment = parseInt(delivery_fee) + parseInt(total_price)
             
             // total_payment = "Rp. 2.300.000"
@@ -273,11 +282,9 @@
                     "</td> </tr> <tr> <td style='width:30%'>Paid using</td> <td>:</td> <td style='font-weight:bold'>" +
                     paid_by +
                     "</td> </tr> <tr> <td style='width:30%'>Price</td> <td>:</td> <td style='font-weight:bold'>" +
-                    total_price +
-                    "</td> </tr> <tr> <td style='width:30%'>Delvery Fee</td> <td>:</td> <td style='font-weight:bold'>" +
-                    delivery_fee + "(" + weight +
-                    ")</td> </tr> </table> </div> <hr> <h3 style='color:red;text-transform:uppercase;font-weight:bold'>Total Payment : " +
-                    total_payment + "</h3>",
+                        total_pembayaran +
+                    "</td> </tr> </table> </div> <hr> <h3 style='color:red;text-transform:uppercase;font-weight:bold'>Total Payment : " +
+                        total_pembayaran + "</h3>",
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
@@ -289,26 +296,28 @@
                         background: "transparent"
                     });
                     $("#order_product").attr('disabled', true)
-                    alert('AJAX U+YUk')
-                    // $.ajax({
-                    //     url: 'process/order_product.php',
-                    //     type: 'post',
-                    //     data: new FormData(this),
-                    //     contentType: false,
-                    //     processData: false,
-                    //     success: function (result) {
-                    //         $("#login_section").LoadingOverlay("hide")
-                    //         Swal.fire({
-                    //             position: 'top-start',
-                    //             icon: 'success',
-                    //             title: 'Transaction Order Sucecesfully',
-                    //             showConfirmButton: false,
-                    //             timer: 1000
-                    //         })
-                    //         window.location.href = 'index.php'
+                    $.ajax({
+                        url: '/client/transaction/checkout',
+                        type: 'post',
+                        data: new FormData(this),
+                        contentType: false,
+                        processData: false,
+                        success: function (result) {
+                            $("#login_section").LoadingOverlay("hide")
+                            Swal.fire({
+                                position: 'top-start',
+                                icon: 'success',
+                                title: 'Transaction Order Sucecesfully',
+                                showConfirmButton: false,
+                                timer: 1000
+                            })
+                            window.location.href = '/vandhi'
 
-                    //     }
-                    // })
+                        },
+                        error : function(err){
+                            console.log(err)
+                        }
+                    })
 
                 }
             })

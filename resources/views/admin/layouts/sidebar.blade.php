@@ -19,17 +19,17 @@
                             <li><a href="{{route('category')}}">Category</a></li>
                             <li><a href="{{route('subcategory')}}">Subcategory</a></li>
                             <li><a href="{{route('product')}}">Product</a></li>
-                            <li><a href="">Size</a></li>
-                            <li><a href="coupon_master.php">Coupon</a></li>
+                            <li><a href="{{route('product_stock')}}">Manage Stock</a></li>
+                            {{-- <li><a href="coupon_master.php">Coupon</a></li> --}}
                         </ul>
                     </li>
                     <li id="transaction">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-money"></i><span>Transaction
                             </span></a>
                         <ul id="transaction_ul" class="collapse">
-                            <li><a href="order_master.php">Order</a></li>
-                            <li><a href="">Shipping</a></li>
-                            <li><a href="">Invoice</a></li>
+                            <li><a href="{{route('order')}}">Orders</a></li>
+                            <li><a href="">Daily Transaction</a></li>
+                            <li><a href="{{route('reports')}}">Reports</a></li>
                         </ul>
                     </li>
                     <li><a href="customer_master.php"><i class="fa fa-users"></i> <span>Customers</span></a></li>

@@ -103,7 +103,7 @@ const editForm = (type, id, value) => {
 };
 
 function attach_photo() {
-    console.log("ye");
+    
 }
 
 const saveDataMaster = type => {

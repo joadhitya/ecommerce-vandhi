@@ -18,7 +18,7 @@ class ProductSeeder extends Seeder
             'product_recomended' => 1,
             'product_description' => 'Champion Long Sleeve',
             'product_slug' => 'champion-long-sleeve',
-            'product_image' => 'assets/product_image/P01.png'
+            'product_image' => 'assets/product_image/01.jpg'
         ] );
         Product::create( [
             'id_category' => 1,
@@ -30,7 +30,7 @@ class ProductSeeder extends Seeder
             'product_recomended' => 0,
             'product_description' => 'Vans Long Sleeve',
             'product_slug' => 'vans-long-sleeve',
-            'product_image' => 'assets/product_image/P02.png'
+            'product_image' => 'assets/product_image/02.jpg'
         ] );
         Product::create( [
             'id_category' => 1,
@@ -42,7 +42,7 @@ class ProductSeeder extends Seeder
             'product_recomended' => 1,
             'product_description' => 'Champion Tees',
             'product_slug' => 'champion-tees',
-            'product_image' => 'assets/product_image/P03.png'
+            'product_image' => 'assets/product_image/03.jpg'
         ] );
         Product::create( [
             'id_category' => 1,
@@ -54,7 +54,7 @@ class ProductSeeder extends Seeder
             'product_recomended' => 1,
             'product_description' => 'H&M Shirt',
             'product_slug' => 'h&m-shirt',
-            'product_image' => 'assets/product_image/P04.png'
+            'product_image' => 'assets/product_image/04.jpg'
         ] );
     }
 }

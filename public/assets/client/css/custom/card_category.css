@@ -1,0 +1,33 @@
+    .card_category {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: auto;
+        height: auto;
+        background: white;
+        background: white;
+        position: relative;
+        overflow: hidden;
+        /* margin-left: 200px; */
+        border-radius: 10px 10px 10px 10px;
+        box-shadow: 0;
+        transform: scale(0.95);
+        transition: box-shadow 0.5s, transform 0.5s;
+    }
+
+    .card_category:hover {
+        transform: scale(1);
+        box-shadow: 5px 20px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .card_category .content {
+        width: 100%;
+        height: auto;
+        padding: .5rem 0;
+        transition: .5s;
+    }
+
+    .slider-two .slick-track .products:hover span{
+    background-color: white;
+}

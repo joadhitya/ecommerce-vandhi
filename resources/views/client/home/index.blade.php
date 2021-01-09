@@ -2,8 +2,8 @@
 
 @section('content')
 
-<header id="landioCarousel" data-aos="zoom-out" data-aos-duration="2000" class="carousel carousel-header slide bg-inverse" data-ride="carousel" data-interval="0"
-    role="banner">
+<header id="landioCarousel" data-aos="zoom-out" data-aos-duration="2000"
+    class="carousel carousel-header slide bg-inverse" data-ride="carousel" data-interval="0" role="banner">
     <ol class="carousel-indicators">
         <li data-target="#landioCarousel" data-slide-to="0" class="active"></li>
     </ol>
@@ -26,7 +26,7 @@
         <div class="row p-y-2">
 
             @foreach ($best_products as $best_product)
-            
+
             <div class="col-md-4 p-t-md wp wp-5" style="margin-top:20px">
                 <div class="bd-grid">
                     <article class="card_custom">
@@ -82,8 +82,8 @@
                         <div class="mockup-bg">
                             <img src="{{asset('assets/client/img/iphone-feature-bg-01.svg')}}" alt="trasher">
                         </div>
-                        <img style="transform:rotate(20deg)" class="device-mockup is-revealing"
-                            src="{{asset('assets/client/media/best-product.png')}}" alt="trasher">
+                        <img style="margin-left:-50px;margin-top:20px" class="device-mockup is-revealing"
+                            src="{{asset('assets/client/media/best.jpg')}}" alt="trasher">
                     </div>
                     <div class="feature-extended-body is-revealing" data-aos="flip-right" data-aos-duration="1500">
                         <h3 class="mt-0 mb-16">H&M Best Shirt Tuday</h3>
@@ -123,8 +123,7 @@
                         <i class="fas fa-star"></i>
                     </a>
                     <span class="text-center">Rp. <?= number_format($product->product_price)?></span>
-                    <a href="javascript:void(0)" onclick="manage_cart('<?= $product->id ?>','add')"
-                        class="card__icon">
+                    <a href="javascript:void(0)" onclick="manage_cart('<?= $product->id ?>','add')" class="card__icon">
                         <i class="fas fa-shopping-cart"></i>
                     </a>
                 </div>
@@ -134,66 +133,66 @@
     </div>
 </section>
 
-
+{{-- 
 <section data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="1500"
     class="section-testimonials text-xs-center bg-inverse"
     style="background: rgb(185,183,228);
 background: radial-gradient(circle, rgba(185,183,228,1) 0%, rgba(207,207,242,1) 51%, rgba(218,221,222,1) 100%);padding-top:5px;background: url({{asset('assets/client/img/bg_bw.jpg')}});background-size:cover">
-    <div class="container">
-        <h3 class="" style="text-align:center;margin-top:20px;margin-bottom:15px">Testimonials</h3>
-        <div id="carousel-testimonials" class="carousel slide" data-ride="carousel" data-interval="0">
-            <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active">
-                    <blockquote class="blockquote">
-                        <img src="{{asset('assets/client/media/testimonials/1_test.png')}}" height="300" width="300"
-                            alt="Avatar" class="img-circle">
-                        <p class="h3">Untuk pertama kalinya dalam sejarah kita merasakan keadaan yang sama dalam
-                            menjalani hidup, namun menjalani kesehariannya dengan cara yang berbeda dari sebelumnya.</p>
-                        <footer>Gabriel Edwin</footer>
-                    </blockquote>
-                </div>
-                <div class="carousel-item">
-                    <blockquote class="blockquote">
-                        <img src="{{asset('assets/client/media/testimonials/2_test.png')}}" height="300" width="300"
-                            alt="Avatar" class="img-circle">
-                        <p class="h3">Untuk pertama kalinya dalam sejarah kita merasakan keadaan yang sama dalam
-                            menjalani hidup, namun menjalani kesehariannya dengan cara yang berbeda dari sebelumnya.</p>
-                        <footer>Gading Condro</footer>
-                    </blockquote>
-                </div>
-                <div class="carousel-item">
-                    <blockquote class="blockquote">
-                        <img src="{{asset('assets/client/media/testimonials/3_test.png')}}" height="300" width="300"
-                            alt="Avatar" class="img-circle">
-                        <p class="h3">Untuk pertama kalinya dalam sejarah kita merasakan keadaan yang sama dalam
-                            menjalani hidup, namun menjalani kesehariannya dengan cara yang berbeda dari sebelumnya.</p>
-                        <footer>Ucok Alias Abah Lala</footer>
-                    </blockquote>
-                </div>
-                <div class="carousel-item">
-                    <blockquote class="blockquote">
-                        <img src="{{asset('assets/client/media/testimonials/4_test.png')}}" height="300" width="300"
-                            alt="Avatar" class="img-circle">
-                        <p class="h3">Untuk pertama kalinya dalam sejarah kita merasakan keadaan yang sama dalam
-                            menjalani hidup, namun menjalani kesehariannya dengan cara yang berbeda dari sebelumnya.</p>
-                        <footer>Gading Condro Prakoso S.KOM!!!</footer>
-                    </blockquote>
-                </div>
+<div class="container">
+    <h3 class="" style="text-align:center;margin-top:20px;margin-bottom:15px">Testimonials</h3>
+    <div id="carousel-testimonials" class="carousel slide" data-ride="carousel" data-interval="0">
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+                <blockquote class="blockquote">
+                    <img src="{{asset('assets/client/media/testimonials/1_test.png')}}" height="300" width="300"
+                        alt="Avatar" class="img-circle">
+                    <p class="h3">Untuk pertama kalinya dalam sejarah kita merasakan keadaan yang sama dalam
+                        menjalani hidup, namun menjalani kesehariannya dengan cara yang berbeda dari sebelumnya.</p>
+                    <footer>Gabriel Edwin</footer>
+                </blockquote>
             </div>
-            <ol class="carousel-indicators" style="margin-top:-50px">
-                <li class="active"><img src="{{asset('assets/client/media/testimonials/1_test.png')}}"
-                        alt="Navigation avatar" data-target="#carousel-testimonials" data-slide-to="0"
-                        class="img-fluid img-circle"></li>
-                <li><img src="{{asset('assets/client/media/testimonials/2_test.png')}}" alt="Navigation avatar"
-                        data-target="#carousel-testimonials" data-slide-to="1" class="img-fluid img-circle"></li>
-                <li><img src="{{asset('assets/client/media/testimonials/3_test.png')}}" alt="Navigation avatar"
-                        data-target="#carousel-testimonials" data-slide-to="2" class="img-fluid img-circle"></li>
-                <li><img src="{{asset('assets/client/media/testimonials/4_test.png')}}" alt="Navigation avatar"
-                        data-target="#carousel-testimonials" data-slide-to="3" class="img-fluid img-circle"></li>
-            </ol>
+            <div class="carousel-item">
+                <blockquote class="blockquote">
+                    <img src="{{asset('assets/client/media/testimonials/2_test.png')}}" height="300" width="300"
+                        alt="Avatar" class="img-circle">
+                    <p class="h3">Untuk pertama kalinya dalam sejarah kita merasakan keadaan yang sama dalam
+                        menjalani hidup, namun menjalani kesehariannya dengan cara yang berbeda dari sebelumnya.</p>
+                    <footer>Gading Condro</footer>
+                </blockquote>
+            </div>
+            <div class="carousel-item">
+                <blockquote class="blockquote">
+                    <img src="{{asset('assets/client/media/testimonials/3_test.png')}}" height="300" width="300"
+                        alt="Avatar" class="img-circle">
+                    <p class="h3">Untuk pertama kalinya dalam sejarah kita merasakan keadaan yang sama dalam
+                        menjalani hidup, namun menjalani kesehariannya dengan cara yang berbeda dari sebelumnya.</p>
+                    <footer>Ucok Alias Abah Lala</footer>
+                </blockquote>
+            </div>
+            <div class="carousel-item">
+                <blockquote class="blockquote">
+                    <img src="{{asset('assets/client/media/testimonials/4_test.png')}}" height="300" width="300"
+                        alt="Avatar" class="img-circle">
+                    <p class="h3">Untuk pertama kalinya dalam sejarah kita merasakan keadaan yang sama dalam
+                        menjalani hidup, namun menjalani kesehariannya dengan cara yang berbeda dari sebelumnya.</p>
+                    <footer>Gading Condro Prakoso S.KOM!!!</footer>
+                </blockquote>
+            </div>
         </div>
+        <ol class="carousel-indicators" style="margin-top:-50px">
+            <li class="active"><img src="{{asset('assets/client/media/testimonials/1_test.png')}}"
+                    alt="Navigation avatar" data-target="#carousel-testimonials" data-slide-to="0"
+                    class="img-fluid img-circle"></li>
+            <li><img src="{{asset('assets/client/media/testimonials/2_test.png')}}" alt="Navigation avatar"
+                    data-target="#carousel-testimonials" data-slide-to="1" class="img-fluid img-circle"></li>
+            <li><img src="{{asset('assets/client/media/testimonials/3_test.png')}}" alt="Navigation avatar"
+                    data-target="#carousel-testimonials" data-slide-to="2" class="img-fluid img-circle"></li>
+            <li><img src="{{asset('assets/client/media/testimonials/4_test.png')}}" alt="Navigation avatar"
+                    data-target="#carousel-testimonials" data-slide-to="3" class="img-fluid img-circle"></li>
+        </ol>
     </div>
-</section>
+</div>
+</section> --}}
 
 
 @endsection
@@ -201,4 +200,21 @@ background: radial-gradient(circle, rgba(185,183,228,1) 0%, rgba(207,207,242,1) 
 
 @push('page-scripts')
 <script src="{{asset('script/client/index.js')}}"></script>
+<script>
+    function logout() {
+        $.ajax({
+            url: '/client/auth/logout',
+            type: 'get',
+            success: function (result) {
+                if(result === 'logout'){
+                    window.location.href = 'vandhi';
+                }
+            },
+            errors: function(err){
+                console.log(err)
+            }
+        })
+    }
+
+</script>
 @endpush

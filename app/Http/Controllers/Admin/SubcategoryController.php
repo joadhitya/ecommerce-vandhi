@@ -23,14 +23,19 @@ class SubcategoryController extends Controller
 
     public function display()
     {
-        $subcategories = Subcategory::get();
+        // $subcategories = Subcategory::get();
+        $subcategories = DB::select('SELECT sc.*, c.category_name
+        FROM subcategories sc
+        INNER JOIN categories c 
+        ON sc.id_category = c.id');
+
         $html = '';
         $no = 1;
         foreach($subcategories as $data){
             $html .= '<tr>';
             $html .= '<td>'.$no++.'</td>';
             $html .= '<td>'.$data->subcategory_code.'</td>';
-            $html .= '<td>'.$data->subcategory_name.'</td>';
+            $html .= '<td>'.$data->category_name.'</td>';
             $html .= '<td>'.$data->subcategory_name.'</td>';
             $html .= '<td>'.$data->subcategory_description.'</td>';
             $html .= '<td>

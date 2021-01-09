@@ -37,25 +37,4 @@
         getCategory()
     });
 </script>
-
-{{-- <script>
-    const fetchData = (type, id) => {
-        $.ajax({
-            url: `/master-data/${type}/${id}`,
-            method: 'get',
-            dataType: 'json',
-            success: function (response) {
-                $("#id_subcategory").val(response[0].id);
-                $("#subcategory_code").val(response[0].subcategory_code);
-                $("#subcategory_name").val(response[0].subcategory_name);               
-                $("#id_category").val(response[0].id_category);               
-                $("#subcategory_description").val(response[0].subcategory_description);              
-                
-            },
-            error: function (err) {
-                console.log(err)
-            }
-        })
-    }
-</script> --}}
 @endpush

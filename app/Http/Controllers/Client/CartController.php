@@ -53,11 +53,6 @@ class CartController extends Controller
     {   
         session_start();
 
-        // if(!isset($_SESSION['cart']) || count($_SESSION['cart'])==0){
-        //     return view('client.checkout.checkout');
-        // }else{
-            // }
-
         $cart_total = 0;
 
         foreach($_SESSION['cart'] as $key=>$val) {

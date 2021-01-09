@@ -23,8 +23,14 @@
   <link rel="stylesheet" href="{{asset('assets/client/css/custom/slick.css')}}">
   <link rel="stylesheet" href="{{asset('assets/client/css/custom/card_product.css')}}">
   <link rel="stylesheet" href="{{asset('assets/client/css/custom/card_checkout.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/client/css/custom/card_shop.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/client/css/custom/card_category.css')}}">
 
 </head>
+
+<?php
+  // session_start();
+?>
 
 <body>
   <input type="hidden" id="uri" value="<?= ucfirst(basename($_SERVER['PHP_SELF'], '.php'))?>">
@@ -49,16 +55,16 @@
         aria-labelledby="collapsingNavbar">
         <ul class="nav navbar-nav pull-xs-right">
           <li class="nav-item nav-item-toggable">
-            <a class="nav-link" href="category.php?id=1">Baju</a>
+            <a class="nav-link" href="shop/category?id=1">Baju</a>
           </li>
           <li class="nav-item nav-item-toggable">
-            <a class="nav-link" href="category.php?id=2">Celana</a>
+            <a class="nav-link" href="shop/category?id=2">Celana</a>
           </li>
           <li class="nav-item nav-item-toggable">
-            <a class="nav-link" href="category.php?id=3">Sandal</a>
+            <a class="nav-link" href="shop/category?id=3">Sandal</a>
           </li>
           <li class="nav-item nav-item-toggable">
-            <a class="nav-link" href="shop.php">Shop Now</a>
+            <a class="nav-link" href="shop">Shop Now</a>
           </li>
           <li class="nav-item nav-item-toggable hidden-md-up">
             <form class="navbar-form" action="search.php" method="get">
@@ -69,10 +75,6 @@
           </li>
           <li class="navbar-divider hidden-sm-down"></li>
           <li class="nav-item dropdown nav-dropdown-search hidden-sm-down">
-            <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              <span class="icon-search"></span>
-            </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-menu-search" aria-labelledby="dropdownMenu1">
               <form class="navbar-form">
                 <input class="form-control navbar-search-input" type="text"
@@ -80,42 +82,44 @@
               </form>
             </div>
           </li>
-          
-                  {{-- <h5 class="media-heading"><?=$_SESSION['USER_NAME']?></h5>
-                  <h6><?=$_SESSION['EMAIL']?></h6> --}}
-          {{-- <li id="user" class="nav-item dropdown hidden-sm-down textselect-off">
+          @if (isset($_SESSION['USER_LOGIN']))
+
+          <?php
+            $src = "../assets/client/image/man.png";
+          ?>
+              
+          <li id="user" class="nav-item dropdown hidden-sm-down textselect-off">
             <a class="nav-link dropdown-toggle nav-dropdown-user" id="dropdownMenu2" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-              <img src="{{asset('assets/client/image/1.png')}}" height="40" width="40" alt="Avatar" class="img-circle"> <span
+              <img src="{{ $src }}" height="40" width="40" alt="Avatar" class="img-circle"> <span
                 class="icon-caret-down"></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-menu-user dropdown-menu-animated"
               aria-labelledby="dropdownMenu2">
               <div class="media">
                 <div class="media-left">
-                  <img src="{{asset('assets/client/image/1.png')}}" height="60" width="60" alt="Avatar" class="img-circle">
+                  <img src="<?=$src?>" height="60" width="60" alt="Avatar" class="img-circle">
                 </div>
                 <div class="media-body media-middle">
+                  <h5 class="media-heading"><?=$_SESSION['USER_NAME']?></h5>
+                  <h6><?=$_SESSION['EMAIL']?></h6>
                 </div>
               </div>
-              <a href="my_order.php" class="dropdown-item text-uppercase">Order</a>
-              <a href="profile.php" class="dropdown-item text-uppercase">Profile</a>
-              <a href="./process/logout.php" class="dropdown-item text-uppercase text-muted">Log out</a>
+              <a href="/order" class="dropdown-item text-uppercase">Order</a>
+              <a href="/profile" class="dropdown-item text-uppercase">Profile</a>
+              <span  onclick="logout()" style="cursor:pointer" class="dropdown-item text-uppercase text-muted">Log out</span>
               <a href="#" class="btn-circle has-gradient pull-xs-right">
                 <span class="sr-only">Edit</span>
                 <span class="icon-edit"></span>
               </a>
             </div>
-          </li> --}}
+          </li>
+
+          @else
           <li class="nav-item nav-item-toggable">
             <a class="nav-link" href="/sign-in">Sign In</a>
           </li>
-          {{-- <?php } else{
-                  echo '<li class="nav-item nav-item-toggable">
-                  <a class="nav-link" href="sign-in">Sign In</a>
-                </li>';
-                
-                }?> --}}
+          @endif
           <li class="nav-item nav-item-toggable">
             <a class="nav-link icon-custom" href="#" target="_blank"><i class="fas fa-heart"></i></a>
           </li>

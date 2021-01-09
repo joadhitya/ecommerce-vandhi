@@ -23,14 +23,30 @@ class ProductController extends Controller
         $subcategories = Subcategory::get();
         return view('admin.master-data.product.index', ['categories' => $categories,'subcategories' => $subcategories]);
     }
+
+    public function product_stock()
+    {
+        $products = DB::select('SELECT p.*, c.category_name, sc.subcategory_name
+        FROM products p 
+        INNER JOIN categories c 
+        ON p.id_category = c.id 
+        INNER JOIN subcategories sc 
+        ON p.id_subcategory = sc.id ');
+        return view('admin.master-data.product.product_stock', ['products' => $products]);
+    }
     
     public function create()
     {
         //
     }
     public function display()
-    {
-        $products = Product::get();
+    {        
+        $products = DB::select('SELECT p.*, c.category_name, sc.subcategory_name
+        FROM products p 
+        INNER JOIN categories c 
+        ON p.id_category = c.id 
+        INNER JOIN subcategories sc 
+        ON p.id_subcategory = sc.id ');
         $html = '';
         $no = 1;
         foreach($products as $data){
@@ -38,7 +54,43 @@ class ProductController extends Controller
             $html .= '<td>'.$no++.'</td>';
             $html .= '<td>'.$data->product_code.'</td>';
             $html .= '<td>'.$data->product_name.'</td>';
-            $html .= '<td>'.$data->id_category.'-'.$data->id_subcategory.'</td>';
+            $html .= '<td>'.$data->category_name.'-'.$data->subcategory_name.'</td>';
+            $html .= '<td>Rp. '.number_format($data->product_price).'</td>';
+            $html .= '<td>'.$data->product_stock.'</td>';
+            $html .= '<td><img class="img-thumbnail" src="/storage/'.$data->product_image.'" style="width:80px!important"/></td>';
+            $recomended = 'Not Recomended';
+            if($data->product_recomended){
+                $recomended = 'Recomended';
+            }
+            $html .= '<td>'.$recomended.'</td>';
+            $html .= '<td>
+                            <button type="button" onclick="editForm(\'product\','.$data->id.',\'Y\')" class="btn mx-1 btn-xs btn-outline-warning"><span class="fa fa-edit"></span></button>
+                            <button type="button" onclick="deleteData(\'product\','.$data->id.')" class="btn mx-1 btn-xs btn-outline-danger"><span class="fa fa-trash"></span></button>
+                        </td>';
+            $html .= '</tr>';
+            }
+        
+        if($html == ''){
+            $html .= '<tr ><td class="text-center" colspan="9"><h6 class="mt-2">Tidak terdapat data Produk</h6></td></tr>';
+         }
+         echo $html;
+    }
+    public function displayManageStock()
+    {        
+        $products = DB::select('SELECT p.*, c.category_name, sc.subcategory_name
+        FROM products p 
+        INNER JOIN categories c 
+        ON p.id_category = c.id 
+        INNER JOIN subcategories sc 
+        ON p.id_subcategory = sc.id ');
+        $html = '';
+        $no = 1;
+        foreach($products as $data){
+            $html .= '<tr>';
+            $html .= '<td>'.$no++.'</td>';
+            $html .= '<td>'.$data->product_code.'</td>';
+            $html .= '<td>'.$data->product_name.'</td>';
+            $html .= '<td>'.$data->category_name.'-'.$data->subcategory_name.'</td>';
             $html .= '<td>Rp. '.number_format($data->product_price).'</td>';
             $html .= '<td>'.$data->product_stock.'</td>';
             $html .= '<td><img class="img-thumbnail" src="/storage/'.$data->product_image.'" style="width:80px!important"/></td>';
@@ -154,5 +206,24 @@ class ProductController extends Controller
             'message' => 'Data Produk Berhasil di Hapuskan.'
        );
         echo json_encode($response);
+    }
+
+    public function getProductById($id){
+        $product = DB::select('SELECT p.*, c.category_name, sc.subcategory_name
+        FROM products p 
+        INNER JOIN categories c 
+        ON p.id_category = c.id 
+        INNER JOIN subcategories sc 
+        ON p.id_subcategory = sc.id 
+        WHERE 
+        p.id = '.$id.' ');        
+        echo json_encode($product);
+    }
+    
+    public function updateStockProduct($id){
+        $product_stock = $_POST['product_stock'];
+        $add_stock = $_POST['add_stock'];
+        $new_stock = $product_stock + $add_stock;
+        DB::update('UPDATE products p SET p.product_stock = '.$new_stock.'   WHERE  p.id = '.$id.' '); 
     }
 }

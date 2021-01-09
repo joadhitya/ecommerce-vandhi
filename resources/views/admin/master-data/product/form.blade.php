@@ -86,7 +86,7 @@
 
                     </div>
                     <hr>
-                    <label style="font-weight:bold" for="">Meta Data for SEO</label>
+                    {{-- <label style="font-weight:bold" for="">Meta Data for SEO</label>
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
                             <label for="">Meta Title</label>
@@ -115,7 +115,7 @@
                                 Please Input Meta Description
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
 
                     <div class="form-row">
