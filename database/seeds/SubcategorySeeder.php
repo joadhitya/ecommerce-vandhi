@@ -8,18 +8,11 @@ class SubcategorySeeder extends Seeder
     public function run()
     {
         Subcategory::create( [
-            'subcategory_code' => 'LPJ',
-            'subcategory_name' => 'Lengan Panjang',
+            'subcategory_code' => 'KS',
+            'subcategory_name' => 'Kaos',
             'id_category' => 1,
-            'subcategory_description' => 'Lengan Panjang',
-            'subcategory_slug' => 'lengan-panjang',
-        ] );
-        Subcategory::create( [
-            'subcategory_code' => 'LPD',
-            'subcategory_name' => 'Lengan Pendek',
-            'id_category' => 1,
-            'subcategory_description' => 'Lengan Pendek',
-            'subcategory_slug' => 'lengan-pendek',
+            'subcategory_description' => 'Kaos',
+            'subcategory_slug' => 'kaos',
         ] );
         Subcategory::create( [
             'subcategory_code' => 'KMJ',
@@ -27,6 +20,13 @@ class SubcategorySeeder extends Seeder
             'id_category' => 1,
             'subcategory_description' => 'Kemeja',
             'subcategory_slug' => 'kemeja',
+        ] );
+        Subcategory::create( [
+            'subcategory_code' => 'JS',
+            'subcategory_name' => 'Jas',
+            'id_category' => 1,
+            'subcategory_description' => 'Jas',
+            'subcategory_slug' => 'jas',
         ] );
         Subcategory::create( [
             'subcategory_code' => 'JNS',
@@ -43,11 +43,32 @@ class SubcategorySeeder extends Seeder
             'subcategory_slug' => 'boxer',
         ] );
         Subcategory::create( [
+            'subcategory_code' => 'CHN',
+            'subcategory_name' => 'Chino',
+            'id_category' => 2,
+            'subcategory_description' => 'Chino',
+            'subcategory_slug' => 'chino',
+        ] );
+        Subcategory::create( [
             'subcategory_code' => 'SLP',
             'subcategory_name' => 'Slip On',
             'id_category' => 3,
             'subcategory_description' => 'Slip On',
             'subcategory_slug' => 'slip-on',
+        ] );
+        Subcategory::create( [
+            'subcategory_code' => 'SLP',
+            'subcategory_name' => 'Casual Sandal',
+            'id_category' => 3,
+            'subcategory_description' => 'Casual Sandal',
+            'subcategory_slug' => 'casual-sandal',
+        ] );
+        Subcategory::create( [
+            'subcategory_code' => 'WMS',
+            'subcategory_name' => 'Woman Sandal',
+            'id_category' => 3,
+            'subcategory_description' => 'Woman Sandal',
+            'subcategory_slug' => 'Woman Sandal',
         ] );
     }
 }
